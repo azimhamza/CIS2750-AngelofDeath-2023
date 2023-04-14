@@ -3,7 +3,7 @@ import 'constants.dart';
 import 'add_remove_elements.dart';
 import 'api.dart';
 import 'dart:convert';
-
+import 'package:logger/logger.dart';
 
 class AddElement extends StatefulWidget {
   final Function(ElementListItem) onSubmit;
@@ -67,11 +67,12 @@ Future<void> _submitForm () async {
       double radius = _radiusController.text.isEmpty ? 10 : double.parse(_radiusController.text);
 
       final responseString = await molSQLApi.addElement(elementName, elementCode, colorVal1, colorVal2, colorVal3, radius);
-      final response = jsonDecode(responseString);
+     
+      //final response = jsonDecode(responseString);
 
       // use the response to create new ElementListItem
       final ElementListItem elementListItem = ElementListItem(
-        id: response ['id'],
+        id: '123',
         elementName: elementName,
         elementCode: elementCode,
         colorVal1: colorVal1,
