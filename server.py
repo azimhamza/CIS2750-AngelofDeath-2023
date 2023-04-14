@@ -80,9 +80,9 @@ class MyHandler(BaseHTTPRequestHandler):
             colorVal2 = post_data_json['colorVal2']
             colorVal3 = post_data_json['colorVal3']
             radius = post_data_json['radius']
-
-            self.molsql_instance.add_element(name, symbol, colorVal1, colorVal2, colorVal3, radius)
-
+            element_no = post_data_json['element_no']
+       
+            self.molsql_instance.add_element(name, element_no, symbol, colorVal1, colorVal2, colorVal3, radius)
             self.send_response(200)
             self.send_header("Content-type", "text/plain")
             success_message = f"Element {name} added to the database"
